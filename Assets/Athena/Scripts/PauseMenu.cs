@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
     [SerializeField] private GameObject pauseMenu;
-    public void Pause(InputAction.CallbackContext ctx)
+    public void Pause()
     {
         isPaused = true;
         pauseMenu.SetActive(true);
 
         Time.timeScale = 0;
     }
-    public void Resume(InputAction.CallbackContext ctx)
+    public void Resume()
     {
         isPaused = false;
         pauseMenu.SetActive(false);
@@ -25,5 +26,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0 : 1;
+    }
+    public void Quit()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }
