@@ -38,7 +38,25 @@ MonoBehaviour:
     m_Modified: 0
     m_ErrorMessage: 
     m_UserModificationsEntityId:
+<<<<<<< HEAD
       m_rawData: 568105589213756508
     m_OriginalEntityId:
       m_rawData: 568105589213756506
+=======
+<<<<<<< HEAD
+      m_rawData: 568105589213756488
+    m_OriginalEntityId:
+      m_rawData: 568105589213756486
+=======
+<<<<<<< HEAD
+      m_rawData: 568105589213756484
+    m_OriginalEntityId:
+      m_rawData: 568105589213756482
+=======
+      m_rawData: 568105589213756488
+    m_OriginalEntityId:
+      m_rawData: 568105589213756486
+>>>>>>> 6744c565237b822accb6b5c17df1b4d6475e1ae2
+>>>>>>> 659039e7f50ae44e2979a9535385b5155a30149e
+>>>>>>> ee7a450a1a8685a1d04793032ff267c76d4207d1
   m_LoadAssets: 0
