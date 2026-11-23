@@ -808,6 +808,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2801af3c-495f-4932-9d34-c49321dedd62
+    m_ActionName: 'UI/PauseToggle[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -827,7 +831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   moveSpeed: 5
   jumpHeight: 10
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 1477653557}
   direction: {x: 0, y: 0}
 --- !u!114 &1477653563
 MonoBehaviour:
@@ -857,7 +861,7 @@ GameObject:
   - component: {fileID: 1942216228}
   - component: {fileID: 1942216227}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

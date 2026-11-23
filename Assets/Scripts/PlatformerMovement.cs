@@ -26,6 +26,7 @@ public class PlatformerMovement : MonoBehaviour
     }
 
 
+
     public void Move(InputAction.CallbackContext ctx)
     {
         _movement = ctx.ReadValue<Vector2>().x * moveSpeed;
@@ -36,6 +37,17 @@ public class PlatformerMovement : MonoBehaviour
         }
       
     }
+    private bool IsGrounded()
+    {
+        // Check for the ground using a boxcast
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.zero);
+        Debug.Log(hit.collider.name);
+
+        return hit;
+    }
+
+
+
 
     public void Jump(InputAction.CallbackContext ctx)
     {
@@ -43,6 +55,10 @@ public class PlatformerMovement : MonoBehaviour
         {
             rb2d.linearVelocityY = jumpHeight;
         }
-       
+
+
+
+                                    
+
     }
 }
