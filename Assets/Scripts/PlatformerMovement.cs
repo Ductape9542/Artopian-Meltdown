@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D),typeof(PlayerInput))]
 public class PlatformerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
-
-    public Rigidbody2D rb2d;
+    [SerializeField] Vector2 _boxOffset;
+    [SerializeField] Vector2 _boxSize;
+    [SerializeField] LayerMask _boxLayer;
+    private Rigidbody2D rb2d;
 
  private float _movement;
     internal Vector3 movement;
@@ -26,6 +29,7 @@ public class PlatformerMovement : MonoBehaviour
     }
 
 
+
     public void Move(InputAction.CallbackContext ctx)
     {
         _movement = ctx.ReadValue<Vector2>().x * moveSpeed;
@@ -36,13 +40,35 @@ public class PlatformerMovement : MonoBehaviour
         }
       
     }
+    private bool IsGrounded()
+    {
+        // Check for the ground using a boxcast
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + (Vector3)_boxOffset, _boxSize, 0, Vector2.zero, 0, _boxLayer);
+      
+
+        return hit;
+    }
+
+
+
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (ctx.ReadValue<float>() == 1)
+        
         {
-            rb2d.linearVelocityY = jumpHeight;
+            if (ctx.canceled || !IsGrounded())
+                return;
+            
+             rb2d.linearVelocityY = jumpHeight;
         }
-       
+
+
+
+                                    
+        
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position + (Vector3)_boxOffset, _boxSize);
     }
 }
